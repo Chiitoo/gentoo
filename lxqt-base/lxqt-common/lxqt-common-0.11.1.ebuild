@@ -2,6 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
+
 inherit cmake-utils
 
 DESCRIPTION="LXQt common resources"
@@ -22,6 +23,8 @@ DEPEND=">=dev-util/lxqt-build-tools-0.3.1
 	>=lxqt-base/liblxqt-0.11.0"
 RDEPEND="${DEPEND}"
 PDEPEND=">=lxqt-base/lxqt-session-0.11.0"
+
+PATCHES=( "${FILESDIR}/${PN}-0.11.1-fix-menu-categories.patch" )
 
 src_configure() {
 	local mycmakeargs=( -DPULL_TRANSLATIONS=OFF )
