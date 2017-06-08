@@ -2,6 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
+
 inherit cmake-utils
 
 DESCRIPTION="LXQt system configuration control center"
@@ -37,16 +38,21 @@ CDEPEND="
 	x11-libs/libX11
 	x11-libs/libXcursor
 	x11-libs/libXext
-	x11-libs/libXfixes"
+	x11-libs/libXfixes
+"
 DEPEND="${CDEPEND}
 	dev-qt/linguist-tools:5
-	>=dev-util/lxqt-build-tools-0.3.1"
+	>=dev-util/lxqt-build-tools-0.3.1
+"
 RDEPEND="${CDEPEND}
-	x11-apps/setxkbmap"
+	x11-apps/setxkbmap
+"
+
+PATCHES=( "${FILESDIR}/${PN}-0.11.1-fix-menu-categories.patch" )
 
 src_prepare() {
 	if has_version ">=dev-util/cmake-3.8.0"; then
-		PATCHES="${FILESDIR}/${PN}-0.11.1-cmake-3.8-build.patch"
+		PATCHES+=( "${FILESDIR}/${PN}-0.11.0-cmake-3.8.patch" )
 	fi
 
 	default

@@ -1,0 +1,10 @@
+--- a/src/lxqt-config.menu	2017-06-08 20:14:11.633590424 +0300
++++ b/src/lxqt-config.menu	2017-06-08 20:14:33.422918771 +0300
+@@ -54,6 +54,7 @@
+                 <Not>
+                     <Or>
+                         <Category>LXQt</Category>
++                        <Category>X-LXQt</Category>
+                         <Category>LXDE</Category>
+                         <Category>System</Category>
+                     </Or>
